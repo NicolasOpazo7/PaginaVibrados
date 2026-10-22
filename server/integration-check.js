@@ -18,7 +18,7 @@ legacy.run('CREATE TABLE projects (id INTEGER PRIMARY KEY AUTOINCREMENT,title TE
 legacy.run('INSERT INTO projects (title,category,description,image) VALUES (?,?,?,?)',['PRUEBA — proyecto anterior','Cierres perimetrales','Contenido aislado para comprobar compatibilidad.',oldFile]);
 fs.writeFileSync(path.join(dataDir,'site.sqlite'),legacy.export());legacy.close();
 let child,cookie;
-async function start(){child=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:String(port),DATA_DIR:dataDir,ADMIN_USER:'test-admin',ADMIN_PASSWORD:password},stdio:'pipe'});await new Promise((resolve,reject)=>{child.stdout.once('data',resolve);child.once('error',reject);child.once('exit',code=>reject(new Error('Server exited '+code)))})}
+async function start(){child=spawn(process.execPath,['server/index.js'],{env:{...process.env,PORT:String(port),DATA_DIR:dataDir,IMPORT_PROVIDED_MEDIA:'false',ADMIN_USER:'test-admin',ADMIN_PASSWORD:password},stdio:'pipe'});await new Promise((resolve,reject)=>{child.stdout.once('data',resolve);child.once('error',reject);child.once('exit',code=>reject(new Error('Server exited '+code)))})}
 async function stop(){const exited=new Promise(resolve=>child.once('exit',resolve));child.kill();await exited}
 async function request(url,options={}){return fetch(origin+'/api'+url,{...options,headers:{...(cookie?{cookie}:{}),...options.headers}})}
 const json=body=>({headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});

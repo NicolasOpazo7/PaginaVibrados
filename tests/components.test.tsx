@@ -4,11 +4,13 @@ import {renderToStaticMarkup} from 'react-dom/server';
 import ReviewsCarousel from '../src/components/ReviewsCarousel';
 import ProjectGallery from '../src/components/ProjectGallery';
 import ProjectManager from '../src/components/ProjectManager';
+import HeroMedia from '../src/components/HeroMedia';
 import type {Review} from '../src/config';
 import {wrapLoopOffset} from '../src/utils/carousel';
 const reviews:Review[]=[1,2,3,4].map(id=>({id,name:`PRUEBA ${id}`,rating:5,comment:'Contenido técnico de prueba.',created:'2026-10-21T12:00:00Z',status:'approved'}));
 test('La unión del bucle conserva la posición visual y la fracción de píxel en ambas direcciones',()=>{assert.equal(wrapLoopOffset(2000.5,1000),1000.5);assert.equal(wrapLoopOffset(999.5,1000),1999.5);assert.equal(wrapLoopOffset(7000.25,1000),1000.25);let position=1999.5;for(let frame=0;frame<120;frame++)position=wrapLoopOffset(position+.5,1000);assert.equal(position,1059.5)});
 function motion(reduced:boolean){Object.defineProperty(globalThis,'window',{value:{matchMedia:()=>({matches:reduced})},configurable:true})}
+test('La portada entrega un poster responsive antes de cargar video y conserva imagen con movimiento reducido',()=>{motion(true);const html=renderToStaticMarkup(<HeroMedia/>);assert.ok(html.includes('hero-mobile-poster.jpg'));assert.ok(html.includes('hero-desktop-poster.jpg'));assert.ok(html.includes('fetchPriority="high"'));assert.ok(!html.includes('<video'));assert.ok(!html.includes('Pausar video de fondo'))});
 test('Movimiento reducido: una sola copia y sin reproducción automática',()=>{motion(true);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews}/>);assert.equal((html.match(/class="review-card"/g)||[]).length,4);assert.ok(!html.includes('is-loop'));assert.ok(!html.includes('carousel-pause'));assert.ok(html.includes('Reseña siguiente'))});
 test('Movimiento normal: tres grupos idénticos y control accesible de pausa',()=>{motion(false);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews}/>);assert.equal((html.match(/class="carousel-group"/g)||[]).length,3);assert.equal((html.match(/class="review-card"/g)||[]).length,12);assert.ok(html.includes('aria-pressed="false"'));assert.ok(html.includes('aria-hidden="true"'));assert.ok(html.includes('inert=""'))});
 test('Una reseña permanece estática y no duplica al cliente',()=>{motion(false);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews.slice(0,1)}/>);assert.equal((html.match(/class="review-card"/g)||[]).length,1);assert.ok(!html.includes('carousel-pause'))});

@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {validateReview,isImage,mediaType,validateProject} from './validation.js';
+import {importProvidedProjects} from './import-projects.js';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const dataDir=path.resolve(process.env.DATA_DIR||path.join(root,'data'));
 fs.mkdirSync(dataDir,{recursive:true});fs.mkdirSync(path.join(dataDir,'uploads'),{recursive:true});
@@ -20,6 +21,10 @@ const query=(sql,args=[])=>{const stmt=db.prepare(sql);try{stmt.bind(args);const
 db.run('CREATE TABLE IF NOT EXISTS project_media (id INTEGER PRIMARY KEY AUTOINCREMENT,project_id INTEGER NOT NULL,type TEXT NOT NULL,src TEXT NOT NULL,thumbnail TEXT DEFAULT "",alt TEXT DEFAULT "",position INTEGER DEFAULT 0)');
 // Preserve existing single-image projects without changing their IDs or files.
 for(const project of query('SELECT * FROM projects')){if(project.image&&!query('SELECT id FROM project_media WHERE project_id=?',[project.id]).length)db.run('INSERT INTO project_media (project_id,type,src,alt) VALUES (?,"image",?,?)',[project.id,project.image,project.title])}save();
+if(process.env.IMPORT_PROVIDED_MEDIA!=='false'){
+  const catalog=JSON.parse(fs.readFileSync(path.join(root,'content/projects.json'),'utf8'));
+  if(importProvidedProjects(db,catalog))save();
+}
 const getProjects=()=>query('SELECT * FROM projects ORDER BY position,id DESC').map(p=>({...p,media:query('SELECT id,type,src,thumbnail,alt,position FROM project_media WHERE project_id=? ORDER BY position,id',[p.id])}));
 const syncCover=id=>{const first=query('SELECT * FROM project_media WHERE project_id=? ORDER BY position,id LIMIT 1',[id])[0];db.run('UPDATE projects SET image=? WHERE id=?',[first?(first.type==='image'?first.src:first.thumbnail||''):'',id])};
 const app=express();app.disable('x-powered-by');app.use(helmet({contentSecurityPolicy:{directives:{defaultSrc:["'self'"],scriptSrc:["'self'"],styleSrc:["'self'","'unsafe-inline'",'https://fonts.googleapis.com'],fontSrc:["'self'",'https://fonts.gstatic.com'],imgSrc:["'self'",'data:'],connectSrc:["'self'"],mediaSrc:["'self'"],upgradeInsecureRequests:process.env.NODE_ENV==='production'?[]:null}}}));app.use(express.json({limit:'20kb'}));

@@ -93,3 +93,22 @@ Ejecuta `npm run build` y `npm start`. Configura un proxy HTTPS hacia `127.0.0.1
 Requiere un servidor Node con almacenamiento persistente y una sola instancia. Respaldar toda la carpeta DATA_DIR. No desplegar únicamente `dist` si se necesitan administración y datos. Este almacenamiento local no funciona en Vercel serverless; para ese destino se requiere migrar la persistencia a un servicio externo.
 
 Pendientes de la empresa antes de publicar: dominio definitivo, imágenes/videos autorizados, validación del texto de privacidad y coordenadas si se quiere un mapa exacto. El enlace de Maps busca la dirección proporcionada. No se agregaron reseñas, clientes ni proyectos inventados, ni se realizó un despliegue público. El SEO existente se conserva; canonical, sitemap y URLs absolutas de Open Graph requieren el dominio definitivo.
+
+## Material real y portada en video
+
+Los archivos entregados el 21 de octubre están preparados en `public/media/`:
+
+- `hero-desktop.mp4`: textura de placas, encuadre horizontal, 960×540, 24 fps, 12 s, aproximadamente 960 KB.
+- `hero-mobile.mp4`: encuadre vertical independiente, 480×720, 24 fps, 12 s, aproximadamente 671 KB.
+- `materiales-instalacion.mp4` y `cierre-instalado.mp4`: clips de galería convertidos a H.264, con miniaturas propias, aproximadamente 2,5 y 3 MB.
+- `montaje-cierre.jpg`: fotografía original de la instalación, sin alteraciones.
+
+La portada usa reproducción silenciosa, inline y en bucle. Pausa al salir de pantalla o cambiar de pestaña; incluye un botón para pausarla. Con ahorro de datos, conexión 2G o movimiento reducido muestra el poster estático y no carga el MP4. Si el navegador impide el autoplay o falla el archivo, conserva la imagen. El clip recorre seis segundos en ambos sentidos para suavizar la unión del bucle. Se aplicaron reducción suave de ruido, contraste y enfoque moderados; no se generaron detalles ni se promete recuperar resolución ausente en la grabación.
+
+El contenido real se declara en `content/projects.json`. El servidor lo importa automáticamente una sola vez (registro `content_imports`), conservando proyectos anteriores y las posteriores modificaciones o eliminaciones del administrador. Para entornos de pruebas usa `IMPORT_PROVIDED_MEDIA=false`. Si no existe una API, la galería utiliza este catálogo estático de material real; las reseñas y el panel siguen requiriendo backend.
+
+La preparación es reproducible con `scripts/prepare-supplied-media.py` y FFmpeg mediante el paquete Python `imageio-ffmpeg`. No es una dependencia del sitio desplegado ni se necesitan las grabaciones originales para ejecutarlo. Los originales nunca se sobrescriben.
+
+En móvil se usan campos de formulario de 16 px para evitar zoom de entrada en iOS, campos apilados, controles de al menos 44 px y un control del video separado del WhatsApp flotante. El contenido inicial se muestra sin esperar a que termine la petición de configuración.
+
+Para volver a generar las versiones optimizadas desde los originales (opcional): `python scripts/prepare-supplied-media.py --source-dir "D:/Descargas"`, con `imageio-ffmpeg` instalado. Los encuadres y ajustes están definidos en ese script.

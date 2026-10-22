@@ -1,0 +1,29 @@
+[
+  {
+    "id": -1,
+    "title": "Cierre perimetral instalado",
+    "category": "Cierres perimetrales",
+    "description": "Un recorrido por el cierre de hormigón terminado.",
+    "position": 0,
+    "image": "/media/cierre-instalado-poster.jpg",
+    "media": [{"id": -1,"type": "video","src": "/media/cierre-instalado.mp4","thumbnail": "/media/cierre-instalado-poster.jpg","alt": "Recorrido por un cierre perimetral de hormigón instalado","position": 0}]
+  },
+  {
+    "id": -2,
+    "title": "Materiales para instalación",
+    "category": "",
+    "description": "Preparación y traslado de placas de hormigón.",
+    "position": 1,
+    "image": "/media/materiales-instalacion-poster.jpg",
+    "media": [{"id": -2,"type": "video","src": "/media/materiales-instalacion.mp4","thumbnail": "/media/materiales-instalacion-poster.jpg","alt": "Placas de hormigón preparadas para su traslado e instalación","position": 0}]
+  },
+  {
+    "id": -3,
+    "title": "Montaje de placas",
+    "category": "Cierres perimetrales",
+    "description": "La instalación, de cerca.",
+    "position": 2,
+    "image": "/media/montaje-cierre.jpg",
+    "media": [{"id": -3,"type": "image","src": "/media/montaje-cierre.jpg","alt": "Montaje de placas y postes de hormigón en una esquina del cierre","position": 0}]
+  }
+]
