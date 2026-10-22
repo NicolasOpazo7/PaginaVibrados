@@ -1,0 +1,16 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {renderToStaticMarkup} from 'react-dom/server';
+import ReviewsCarousel from '../src/components/ReviewsCarousel';
+import ProjectGallery from '../src/components/ProjectGallery';
+import ProjectManager from '../src/components/ProjectManager';
+import type {Review} from '../src/config';
+import {wrapLoopOffset} from '../src/utils/carousel';
+const reviews:Review[]=[1,2,3,4].map(id=>({id,name:`PRUEBA ${id}`,rating:5,comment:'Contenido técnico de prueba.',created:'2026-10-21T12:00:00Z',status:'approved'}));
+test('La unión del bucle conserva la posición visual y la fracción de píxel en ambas direcciones',()=>{assert.equal(wrapLoopOffset(2000.5,1000),1000.5);assert.equal(wrapLoopOffset(999.5,1000),1999.5);assert.equal(wrapLoopOffset(7000.25,1000),1000.25);let position=1999.5;for(let frame=0;frame<120;frame++)position=wrapLoopOffset(position+.5,1000);assert.equal(position,1059.5)});
+function motion(reduced:boolean){Object.defineProperty(globalThis,'window',{value:{matchMedia:()=>({matches:reduced})},configurable:true})}
+test('Movimiento reducido: una sola copia y sin reproducción automática',()=>{motion(true);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews}/>);assert.equal((html.match(/class="review-card"/g)||[]).length,4);assert.ok(!html.includes('is-loop'));assert.ok(!html.includes('carousel-pause'));assert.ok(html.includes('Reseña siguiente'))});
+test('Movimiento normal: tres grupos idénticos y control accesible de pausa',()=>{motion(false);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews}/>);assert.equal((html.match(/class="carousel-group"/g)||[]).length,3);assert.equal((html.match(/class="review-card"/g)||[]).length,12);assert.ok(html.includes('aria-pressed="false"'));assert.ok(html.includes('aria-hidden="true"'));assert.ok(html.includes('inert=""'))});
+test('Una reseña permanece estática y no duplica al cliente',()=>{motion(false);const html=renderToStaticMarkup(<ReviewsCarousel reviews={reviews.slice(0,1)}/>);assert.equal((html.match(/class="review-card"/g)||[]).length,1);assert.ok(!html.includes('carousel-pause'))});
+test('Galería vacía: tres placeholders sin imágenes de proyectos inventados',()=>{const html=renderToStaticMarkup(<ProjectGallery projects={[]} loading={false} error=""/>);assert.equal((html.match(/PRÓXIMAMENTE/g)||[]).length,3);assert.ok(!html.includes('<img'));assert.ok(html.includes('Filtrar trabajos'))});
+test('Galería distingue video y cuenta los archivos; administrador acepta carga múltiple',()=>{const project={id:1,title:'PRUEBA',category:'',description:'',image:'',position:0,media:[{id:1,type:'video' as const,src:'/test.webm',alt:'Video de prueba',position:0},{id:2,type:'image' as const,src:'/test.jpg',alt:'Foto de prueba',position:1}]};const gallery=renderToStaticMarkup(<ProjectGallery projects={[project]} loading={false} error=""/>);assert.ok(gallery.includes('Reproducir PRUEBA'));assert.ok(gallery.includes('preload="metadata"'));assert.ok(!gallery.includes('autoPlay'));const admin=renderToStaticMarkup(<ProjectManager projects={[]} run={async fn=>{await fn()}}/>);assert.ok(admin.includes('multiple=""'));assert.ok(admin.includes('video/mp4,video/webm'))});
