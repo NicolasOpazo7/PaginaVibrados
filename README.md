@@ -92,7 +92,7 @@ Ejecuta `npm run build` y `npm start`. Configura un proxy HTTPS hacia `127.0.0.1
 
 Requiere un servidor Node con almacenamiento persistente y una sola instancia. Respaldar toda la carpeta DATA_DIR. No desplegar únicamente `dist` si se necesitan administración y datos. Este almacenamiento local no funciona en Vercel serverless; para ese destino se requiere migrar la persistencia a un servicio externo.
 
-Pendientes de la empresa antes de publicar: dominio definitivo, imágenes/videos autorizados, validación del texto de privacidad y coordenadas si se quiere un mapa exacto. El enlace de Maps busca la dirección proporcionada. No se agregaron reseñas, clientes ni proyectos inventados, ni se realizó un despliegue público. El SEO existente se conserva; canonical, sitemap y URLs absolutas de Open Graph requieren el dominio definitivo.
+Pendientes de la empresa antes de publicar: dominio definitivo, imágenes/videos autorizados, validación del texto de privacidad y coordenadas si se quiere un mapa exacto. El enlace de Maps busca la dirección proporcionada. No se agregaron reseñas, clientes ni proyectos inventados, y el despliegue de GitHub Pages se gestiona mediante Actions. El SEO existente se conserva; canonical, sitemap y URLs absolutas de Open Graph requieren el dominio definitivo.
 
 ## Material real y portada en video
 
@@ -112,3 +112,12 @@ La preparación es reproducible con `scripts/prepare-supplied-media.py` y FFmpeg
 En móvil se usan campos de formulario de 16 px para evitar zoom de entrada en iOS, campos apilados, controles de al menos 44 px y un control del video separado del WhatsApp flotante. El contenido inicial se muestra sin esperar a que termine la petición de configuración.
 
 Para volver a generar las versiones optimizadas desde los originales (opcional): `python scripts/prepare-supplied-media.py --source-dir "D:/Descargas"`, con `imageio-ffmpeg` instalado. Los encuadres y ajustes están definidos en ese script.
+
+
+## GitHub Pages
+
+La publicación se realiza mediante .github/workflows/pages.yml: instala dependencias, ejecuta comprobaciones, compila React y publica únicamente dist. Pages debe usar GitHub Actions como origen, no main / (que contiene código fuente TypeScript). Cada push a main actualiza la web automáticamente.
+
+El workflow configura VITE_BASE_PATH=/PaginaVibrados/ y VITE_STATIC_SITE=true. Las rutas de JavaScript, CSS, imágenes y videos respetan ese prefijo. La versión local conserva la raíz / y el backend.
+
+En Pages funcionan la portada, los videos, los trabajos, los filtros, el lightbox y la cotización por WhatsApp. La opción de compartir una reseña abre WhatsApp. La base de datos, moderación, formularios de reseña persistentes y administración siguen disponibles en la versión con servidor Node; no se simulan en el hosting estático.

@@ -1,6 +1,7 @@
 import {useEffect,useRef,useState} from 'react';
 import {Pause,Play} from 'lucide-react';
 import {useReducedMotion} from '../hooks/usePageMotion';
+import {asset} from '../config';
 
 type NetworkConnection=EventTarget&{saveData?:boolean;effectiveType?:string};
 
@@ -23,7 +24,7 @@ export default function HeroMedia(){
     return()=>{query.removeEventListener('change',update);connection?.removeEventListener('change',network);document.removeEventListener('visibilitychange',visibility);observer?.disconnect()};
   },[]);
   const enabled=ready&&!reduced&&!saveData&&!failed;
-  const src=`/media/hero-${mobile?'mobile':'desktop'}.mp4`;
+  const src=asset(`/media/hero-${mobile?'mobile':'desktop'}.mp4`);
   useEffect(()=>{
     const el=video.current;if(!el||!enabled)return;
     if(paused||!inView||!visible){el.pause();return}
@@ -36,7 +37,7 @@ export default function HeroMedia(){
     else{setPaused(false);try{await video.current.play();setBlocked(false)}catch{setBlocked(true)}}
   }
   return <><div className="hero-media" ref={container} aria-hidden="true">
-    <picture><source media="(max-width: 700px)" srcSet="/media/hero-mobile-poster.jpg"/><img className="hero-poster" src="/media/hero-desktop-poster.jpg" alt="" fetchPriority="high" width="960" height="540"/></picture>
-    {enabled&&<video ref={video} className={`hero-video ${playing?'is-playing':''}`} src={src} poster={`/media/hero-${mobile?'mobile':'desktop'}-poster.jpg`} autoPlay muted loop playsInline preload="metadata" tabIndex={-1} disablePictureInPicture onPlaying={()=>setPlaying(true)} onError={()=>{setFailed(true);setPlaying(false)}}/>}
+    <picture><source media="(max-width: 700px)" srcSet={asset('/media/hero-mobile-poster.jpg')}/><img className="hero-poster" src={asset('/media/hero-desktop-poster.jpg')} alt="" fetchPriority="high" width="960" height="540"/></picture>
+    {enabled&&<video ref={video} className={`hero-video ${playing?'is-playing':''}`} src={src} poster={asset(`/media/hero-${mobile?'mobile':'desktop'}-poster.jpg`)} autoPlay muted loop playsInline preload="metadata" tabIndex={-1} disablePictureInPicture onPlaying={()=>setPlaying(true)} onError={()=>{setFailed(true);setPlaying(false)}}/>}
   </div>{enabled&&<button className="hero-motion-control" onClick={toggle} aria-label={paused||blocked?'Reproducir video de fondo':'Pausar video de fondo'}>{paused||blocked?<Play size={14}/>:<Pause size={14}/>}<span>{paused||blocked?'Reproducir fondo':'Pausar fondo'}</span></button>}</>;
 }

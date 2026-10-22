@@ -1,10 +1,10 @@
 import {useCallback,useEffect,useState} from 'react';
 import {ArrowUpRight,ChevronLeft,ChevronRight,Image,Images,Play,Video} from 'lucide-react';
-import {type Project,type ProjectMedia} from '../config';
+import {asset,type Project,type ProjectMedia} from '../config';
 import Modal from './Modal';
 
 const categories=['Todos','Cierres perimetrales','Parcelas y lotes','Cierres para empresas'];
-function files(project:Project):ProjectMedia[]{return project.media?.length?project.media:project.image?[{id:0,type:'image',src:project.image,alt:project.title,position:0}]:[]}
+function files(project:Project):ProjectMedia[]{const entries=project.media?.length?project.media:project.image?[{id:0,type:'image' as const,src:project.image,alt:project.title,position:0}]:[];return entries.map(m=>({...m,src:asset(m.src),thumbnail:m.thumbnail?asset(m.thumbnail):undefined}))}
 
 export default function ProjectGallery({projects,loading,error}:{projects:Project[];loading:boolean;error:string}){
   const[filter,setFilter]=useState('Todos'),[selected,setSelected]=useState<{project:Project;index:number}|null>(null),[mediaError,setMediaError]=useState(false);
