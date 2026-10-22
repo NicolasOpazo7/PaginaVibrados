@@ -9,7 +9,7 @@ permissions:
   id-token: write
 concurrency:
   group: github-pages
-  cancel-in-progress: false
+  cancel-in-progress: true
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +20,7 @@ jobs:
           node-version: 22
           cache: npm
       - uses: actions/configure-pages@v5
-      - run: npm ci
+      - run: npm ci --no-audit --no-fund --fetch-timeout=30000
       - run: npm run typecheck
       - run: npm run lint
       - run: npm test
