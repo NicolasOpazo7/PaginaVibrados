@@ -121,3 +121,19 @@ La publicación se realiza mediante .github/workflows/pages.yml: instala depende
 El workflow configura VITE_BASE_PATH=/PaginaVibrados/ y VITE_STATIC_SITE=true. Las rutas de JavaScript, CSS, imágenes y videos respetan ese prefijo. La versión local conserva la raíz / y el backend.
 
 En Pages funcionan la portada, los videos, los trabajos, los filtros, el lightbox y la cotización por WhatsApp. La opción de compartir una reseña abre WhatsApp. La base de datos, moderación, formularios de reseña persistentes y administración siguen disponibles en la versión con servidor Node; no se simulan en el hosting estático.
+
+
+## Entrega del 22 de octubre: carrusel de trabajos
+
+Se añadieron las 25 fotos y los 11 videos de la carpeta de WhatsApp, comprobados mediante SHA-256 y revisión visual contra el material anterior. Se conservan los tres trabajos anteriores: el catálogo contiene 39 tarjetas. Los originales quedan intactos; las copias optimizadas y miniaturas están en `public/media/trabajos/`. `content/media-import-2026-10-22.json` registra origen, hash y tamaños.
+
+El carrusel avanza continuamente de derecha a izquierda a 36 px/s. Pausa al pasar el mouse, enfocar con teclado, abrir una foto/video o pulsar Pausar. Se puede recorrer con flechas, botones y deslizamiento táctil. Con movimiento reducido funciona manualmente. Los videos se abren con controles al pulsar su miniatura; no se descargan todos los MP4 al cargar la galería.
+
+La importación en SQLite usa lotes independientes para añadir la nueva entrega sin duplicar la anterior ni restaurar trabajos que haya eliminado el administrador. Para repetir la preparación: `python scripts/import-whatsapp-media.py --source-dir "E:/Imagenes/contenido pagina vibrados"`, con Pillow e imageio-ffmpeg disponibles. Los hashes evitan volver a añadir un mismo original.
+
+
+## Prueba de portada con postes de hormigón
+
+La portada usa ahora `WhatsApp Video 2026-10-22 at 7.26.11 AM (1).mp4`: tramo de 3 a 9,5 segundos, seguido en reversa para completar un bucle de 13 segundos, sin audio. Los archivos `hero-postes-desktop` y `hero-postes-mobile` y sus posters conservan la resolución nativa: recorte horizontal de 478×298 y vertical de 478×850. Se mantienen los controles de pausa, ahorro de datos y movimiento reducido. El material anterior sigue disponible para volver a compararlo.
+
+Preparación reproducible: `python scripts/prepare-hero-postes.py --source "E:/Imagenes/contenido pagina vibrados/WhatsApp Video 2026-10-22 at 7.26.11 AM (1).mp4"`.

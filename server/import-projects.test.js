@@ -9,15 +9,29 @@ test('Importa medios reales una sola vez y respeta posteriores ediciones o elimi
   const SQL=await initSqlJs(),db=new SQL.Database();
   db.run('CREATE TABLE projects (id INTEGER PRIMARY KEY,title TEXT,category TEXT,description TEXT,image TEXT,position INTEGER);CREATE TABLE project_media (id INTEGER PRIMARY KEY,project_id INTEGER,type TEXT,src TEXT,thumbnail TEXT,alt TEXT,position INTEGER)');
   assert.equal(importProvidedProjects(db,catalog),true);
-  assert.equal(db.exec('SELECT COUNT(*) FROM projects')[0].values[0][0],3);
-  assert.equal(db.exec('SELECT COUNT(*) FROM project_media WHERE type="video"')[0].values[0][0],2);
+  assert.equal(db.exec('SELECT COUNT(*) FROM projects')[0].values[0][0],catalog.length);
+  assert.equal(db.exec('SELECT COUNT(*) FROM project_media WHERE type="video"')[0].values[0][0],catalog.flatMap(p=>p.media).filter(m=>m.type==='video').length);
   db.run('DELETE FROM projects WHERE id=1');
   assert.equal(importProvidedProjects(db,catalog),false);
-  assert.equal(db.exec('SELECT COUNT(*) FROM projects')[0].values[0][0],2);db.close();
+  assert.equal(db.exec('SELECT COUNT(*) FROM projects')[0].values[0][0],catalog.length-1);db.close();
 });
 
 test('Los medios del catálogo existen y el video móvil pesa menos de 1 MB',()=>{
   for(const p of catalog)for(const m of p.media){assert.ok(fs.existsSync('public'+m.src));if(m.thumbnail)assert.ok(fs.existsSync('public'+m.thumbnail))}
   const mobile=fs.statSync('public/media/hero-mobile.mp4').size,desktop=fs.statSync('public/media/hero-desktop.mp4').size;
   assert.ok(mobile<1000000);assert.ok(mobile<desktop);
+});
+
+
+test('La nueva entrega se importa sin duplicar la anterior ni restaurar trabajos eliminados',async()=>{
+  const SQL=await initSqlJs(),db=new SQL.Database();
+  db.run('CREATE TABLE projects (id INTEGER PRIMARY KEY,title TEXT,category TEXT,description TEXT,image TEXT,position INTEGER);CREATE TABLE project_media (id INTEGER PRIMARY KEY,project_id INTEGER,type TEXT,src TEXT,thumbnail TEXT,alt TEXT,position INTEGER)');
+  const previous=catalog.filter(p=>!p.importBatch);
+  importProvidedProjects(db,previous);
+  db.run('DELETE FROM projects WHERE id=1');
+  assert.equal(importProvidedProjects(db,catalog),true);
+  assert.equal(db.exec('SELECT COUNT(*) FROM projects')[0].values[0][0],catalog.length-1);
+  assert.equal(db.exec('SELECT COUNT(*) FROM content_imports')[0].values[0][0],2);
+  assert.equal(importProvidedProjects(db,catalog),false);
+  db.close();
 });

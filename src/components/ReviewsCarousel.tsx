@@ -1,14 +1,15 @@
 import {useEffect,useRef,useState} from 'react';
-import {ChevronLeft,ChevronRight,Pause,Play,Quote} from 'lucide-react';
+import {ChevronLeft,ChevronRight,Pause,Play,Quote,UserRound,CalendarDays} from 'lucide-react';
 import type {Review} from '../config';
 import {useReducedMotion} from '../hooks/usePageMotion';
 import {wrapLoopOffset} from '../utils/carousel';
 
 function ReviewCard({review,hidden=false}:{review:Review;hidden?:boolean}){
   return <article className="review-card" aria-hidden={hidden||undefined} inert={hidden||undefined}>
-    <div className="review-top"><span className="stars" aria-label={`${review.rating} de 5 estrellas`}>{'★'.repeat(review.rating)}{'☆'.repeat(5-review.rating)}</span><Quote size={24} aria-hidden="true"/></div>
+    <div className="review-top"><div className="review-author"><span className="review-avatar" aria-hidden="true"><UserRound size={26} strokeWidth={1.6}/></span><div><strong>{review.name?.trim()||'Anónimo'}</strong><span className="review-subtitle">Opinión de cliente</span><span className="stars" aria-label={`${review.rating} de 5 estrellas`}>{'★'.repeat(review.rating)}{'☆'.repeat(5-review.rating)}</span></div></div><Quote className="review-quote" size={30} fill="currentColor" strokeWidth={0} aria-hidden="true"/></div>
     <p className="review-comment" tabIndex={hidden?-1:0}>{review.comment}</p>
-    <div className="review-author">{review.image?<img src={review.image} alt="Fotografía autorizada del trabajo" loading="lazy" draggable={false}/>:<span className="review-avatar" aria-hidden="true">{review.name.slice(0,1)}</span>}<div><strong>{review.name}</strong>{review.created&&<time dateTime={review.created}>{new Date(review.created).toLocaleDateString('es-CL')}</time>}</div></div>
+    {review.image&&<img className="review-work-photo" src={review.image} alt="Fotografía del trabajo adjunta a la reseña" loading="lazy" draggable={false}/>}
+    {review.created&&<div className="review-date"><CalendarDays size={16} aria-hidden="true"/><time dateTime={review.created}>{new Date(review.created).toLocaleDateString('es-CL',{day:'numeric',month:'long',year:'numeric'})}</time></div>}
     {review.response&&<p className="review-response"><strong>Vibrados Lagunilla</strong>{review.response}</p>}
   </article>;
 }

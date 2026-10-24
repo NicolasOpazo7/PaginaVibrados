@@ -6,7 +6,16 @@
     "description": "Un recorrido por el cierre de hormigón terminado.",
     "position": 0,
     "image": "/media/cierre-instalado-poster.jpg",
-    "media": [{"id": -1,"type": "video","src": "/media/cierre-instalado.mp4","thumbnail": "/media/cierre-instalado-poster.jpg","alt": "Recorrido por un cierre perimetral de hormigón instalado","position": 0}]
+    "media": [
+      {
+        "id": -1,
+        "type": "video",
+        "src": "/media/cierre-instalado.mp4",
+        "thumbnail": "/media/cierre-instalado-poster.jpg",
+        "alt": "Recorrido por un cierre perimetral de hormigón instalado",
+        "position": 0
+      }
+    ]
   },
   {
     "id": -2,
@@ -15,7 +24,16 @@
     "description": "Preparación y traslado de placas de hormigón.",
     "position": 1,
     "image": "/media/materiales-instalacion-poster.jpg",
-    "media": [{"id": -2,"type": "video","src": "/media/materiales-instalacion.mp4","thumbnail": "/media/materiales-instalacion-poster.jpg","alt": "Placas de hormigón preparadas para su traslado e instalación","position": 0}]
+    "media": [
+      {
+        "id": -2,
+        "type": "video",
+        "src": "/media/materiales-instalacion.mp4",
+        "thumbnail": "/media/materiales-instalacion-poster.jpg",
+        "alt": "Placas de hormigón preparadas para su traslado e instalación",
+        "position": 0
+      }
+    ]
   },
   {
     "id": -3,
@@ -24,6 +42,709 @@
     "description": "La instalación, de cerca.",
     "position": 2,
     "image": "/media/montaje-cierre.jpg",
-    "media": [{"id": -3,"type": "image","src": "/media/montaje-cierre.jpg","alt": "Montaje de placas y postes de hormigón en una esquina del cierre","position": 0}]
+    "media": [
+      {
+        "id": -3,
+        "type": "image",
+        "src": "/media/montaje-cierre.jpg",
+        "alt": "Montaje de placas y postes de hormigón en una esquina del cierre",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -103,
+    "title": "Placas de hormigón apiladas",
+    "category": "",
+    "description": "",
+    "position": 3,
+    "image": "/media/trabajos/image-9661919f35ee.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "9661919f35ee126e3c84161e57415ccf0cffdb543d3b4c58b17258a59a82eb67",
+    "media": [
+      {
+        "id": -103,
+        "type": "image",
+        "src": "/media/trabajos/image-9661919f35ee.jpg",
+        "alt": "Placas de hormigón apiladas",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -104,
+    "title": "Carga de placas para despacho",
+    "category": "",
+    "description": "",
+    "position": 4,
+    "image": "/media/trabajos/image-e2d7e7c35bfe.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "e2d7e7c35bfe9f8fc0acbe8f149a2d7042a7ead58a55398a9b2fe3df0abc1d50",
+    "media": [
+      {
+        "id": -104,
+        "type": "image",
+        "src": "/media/trabajos/image-e2d7e7c35bfe.jpg",
+        "alt": "Carga de placas para despacho",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -105,
+    "title": "Postes de hormigón preparados",
+    "category": "",
+    "description": "",
+    "position": 5,
+    "image": "/media/trabajos/image-54977315d775.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "54977315d775195aa465d6bf82fa2acbf9b198eb7441f7728d362e22c655244f",
+    "media": [
+      {
+        "id": -105,
+        "type": "image",
+        "src": "/media/trabajos/image-54977315d775.jpg",
+        "alt": "Postes de hormigón preparados",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -106,
+    "title": "Postes para cierres",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 6,
+    "image": "/media/trabajos/image-a670dbd18cb1.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "a670dbd18cb1bec5c36ec7c498d807a18843cbd8a507f11f5dd814bb2108f1f3",
+    "media": [
+      {
+        "id": -106,
+        "type": "image",
+        "src": "/media/trabajos/image-a670dbd18cb1.jpg",
+        "alt": "Postes para cierres",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -107,
+    "title": "Instalación de cierre",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 7,
+    "image": "/media/trabajos/image-fb1a270bb702.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "fb1a270bb7024ad0ad5b475b7234ae1e52df9043ed3c1eff3fd4f88fc49aa79d",
+    "media": [
+      {
+        "id": -107,
+        "type": "image",
+        "src": "/media/trabajos/image-fb1a270bb702.jpg",
+        "alt": "Instalación de cierre",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -108,
+    "title": "Materiales en producción",
+    "category": "",
+    "description": "",
+    "position": 8,
+    "image": "/media/trabajos/image-20b2b4b1ead5.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "20b2b4b1ead5e4404e3c5fa0bfe7f040721aa9d6098f8e9e5a6f2a897bd976de",
+    "media": [
+      {
+        "id": -108,
+        "type": "image",
+        "src": "/media/trabajos/image-20b2b4b1ead5.jpg",
+        "alt": "Materiales en producción",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -109,
+    "title": "Despacho de materiales",
+    "category": "",
+    "description": "",
+    "position": 9,
+    "image": "/media/trabajos/image-cf67d51c6faa.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "cf67d51c6faae8d469f33deaffcfa231c8a5a62431d5259a4ae74463da66ac58",
+    "media": [
+      {
+        "id": -109,
+        "type": "image",
+        "src": "/media/trabajos/image-cf67d51c6faa.jpg",
+        "alt": "Despacho de materiales",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -110,
+    "title": "Fabricación de placas",
+    "category": "",
+    "description": "",
+    "position": 10,
+    "image": "/media/trabajos/image-d60df1f1f264.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "d60df1f1f2647d3ad2dc7babba35b20eba4e35a340674046347dbdf9a3b904c4",
+    "media": [
+      {
+        "id": -110,
+        "type": "image",
+        "src": "/media/trabajos/image-d60df1f1f264.jpg",
+        "alt": "Fabricación de placas",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -111,
+    "title": "Placas de hormigón en fabricación",
+    "category": "",
+    "description": "",
+    "position": 11,
+    "image": "/media/trabajos/image-e2516b4ad5d7.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "e2516b4ad5d7e22e57b4a4462b169865ce9c348ee80e9c471d6813ad7aaa120d",
+    "media": [
+      {
+        "id": -111,
+        "type": "image",
+        "src": "/media/trabajos/image-e2516b4ad5d7.jpg",
+        "alt": "Placas de hormigón en fabricación",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -112,
+    "title": "Trabajo de instalación",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 12,
+    "image": "/media/trabajos/image-6f7a82db7161.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "6f7a82db716130ca8399859a14394f746ab17d2e8fe0d0d22f60f77c35e3c0f3",
+    "media": [
+      {
+        "id": -112,
+        "type": "image",
+        "src": "/media/trabajos/image-6f7a82db7161.jpg",
+        "alt": "Trabajo de instalación",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -113,
+    "title": "Materiales para el montaje",
+    "category": "",
+    "description": "",
+    "position": 13,
+    "image": "/media/trabajos/image-9e8c5547da47.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "9e8c5547da472c31082c7f55519446161613d0f53bdcdee17cc7b00ada04c09e",
+    "media": [
+      {
+        "id": -113,
+        "type": "image",
+        "src": "/media/trabajos/image-9e8c5547da47.jpg",
+        "alt": "Materiales para el montaje",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -114,
+    "title": "Montaje de cierre perimetral",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 14,
+    "image": "/media/trabajos/image-00f037b0383a.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "00f037b0383a723c116956550dd559cd2e4c684b31c62d9f642dbf8ad893353f",
+    "media": [
+      {
+        "id": -114,
+        "type": "image",
+        "src": "/media/trabajos/image-00f037b0383a.jpg",
+        "alt": "Montaje de cierre perimetral",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -115,
+    "title": "Producción de placas",
+    "category": "",
+    "description": "",
+    "position": 15,
+    "image": "/media/trabajos/image-7e33cef9bd7c.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "7e33cef9bd7ca1d75c3e628798a7d43c345b97ee76a8e530b0a02a3eeede02be",
+    "media": [
+      {
+        "id": -115,
+        "type": "image",
+        "src": "/media/trabajos/image-7e33cef9bd7c.jpg",
+        "alt": "Producción de placas",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -116,
+    "title": "Acceso con cierre de hormigón",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 16,
+    "image": "/media/trabajos/image-9ab3a30167f9.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "9ab3a30167f9dc8ee716e45bded433fe3f4cfe80148eea80d8ba90fe7c900146",
+    "media": [
+      {
+        "id": -116,
+        "type": "image",
+        "src": "/media/trabajos/image-9ab3a30167f9.jpg",
+        "alt": "Acceso con cierre de hormigón",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -117,
+    "title": "Cierre junto a vivienda",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 17,
+    "image": "/media/trabajos/image-96987fb21cd8.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "96987fb21cd859d07a26cad55caed89a79a89fe51f9701f7a87ad4fe6b4b45bc",
+    "media": [
+      {
+        "id": -117,
+        "type": "image",
+        "src": "/media/trabajos/image-96987fb21cd8.jpg",
+        "alt": "Cierre junto a vivienda",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -118,
+    "title": "Cierre instalado en patio",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 18,
+    "image": "/media/trabajos/image-94ef1ffbffb7.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "94ef1ffbffb75388832fa7fc6b94f25b27f051d1cbeb33328c31818a12218be0",
+    "media": [
+      {
+        "id": -118,
+        "type": "image",
+        "src": "/media/trabajos/image-94ef1ffbffb7.jpg",
+        "alt": "Cierre instalado en patio",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -119,
+    "title": "Cierre a lo largo del terreno",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 19,
+    "image": "/media/trabajos/image-de8b0c8b8450.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "de8b0c8b84505349089c9204c03656fb5abb2596f15e748d053149642dfcaa0b",
+    "media": [
+      {
+        "id": -119,
+        "type": "image",
+        "src": "/media/trabajos/image-de8b0c8b8450.jpg",
+        "alt": "Cierre a lo largo del terreno",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -120,
+    "title": "Vista de cierre perimetral",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 20,
+    "image": "/media/trabajos/image-670101998e2c.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "670101998e2c2d44f825d291e8a04cb1b9a7686a91bafd8898806cfc1224a782",
+    "media": [
+      {
+        "id": -120,
+        "type": "image",
+        "src": "/media/trabajos/image-670101998e2c.jpg",
+        "alt": "Vista de cierre perimetral",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -121,
+    "title": "Cierre en acceso a propiedad",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 21,
+    "image": "/media/trabajos/image-8a0eb0bac256.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "8a0eb0bac2565707a306e5c627d8bb5c9ea5a81922739bb215da7d860a78508a",
+    "media": [
+      {
+        "id": -121,
+        "type": "image",
+        "src": "/media/trabajos/image-8a0eb0bac256.jpg",
+        "alt": "Cierre en acceso a propiedad",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -122,
+    "title": "Detalle de placas instaladas",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 22,
+    "image": "/media/trabajos/image-74b999cf67f1.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "74b999cf67f19c17ed2ddb5989b1e15c1ae8f64ab516d0ba2af2cc5e301084c6",
+    "media": [
+      {
+        "id": -122,
+        "type": "image",
+        "src": "/media/trabajos/image-74b999cf67f1.jpg",
+        "alt": "Detalle de placas instaladas",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -123,
+    "title": "Avance de instalación",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 23,
+    "image": "/media/trabajos/image-2c1fbcd642ae.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "2c1fbcd642aea6fc996c0ae151bd61258ec3f19b2cc6a9efb989a8f2a996e344",
+    "media": [
+      {
+        "id": -123,
+        "type": "image",
+        "src": "/media/trabajos/image-2c1fbcd642ae.jpg",
+        "alt": "Avance de instalación",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -124,
+    "title": "Postes y placas instalados",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 24,
+    "image": "/media/trabajos/image-a3718be51063.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "a3718be51063f693dc1757fa4e13f274234d402b0482c02cc9e9b67145bcb072",
+    "media": [
+      {
+        "id": -124,
+        "type": "image",
+        "src": "/media/trabajos/image-a3718be51063.jpg",
+        "alt": "Postes y placas instalados",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -125,
+    "title": "Terminación de cierre",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 25,
+    "image": "/media/trabajos/image-53fa6bf79ce8.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "53fa6bf79ce8833044a82814b3c86d6dda9469398441eef1380fa28a9c25541a",
+    "media": [
+      {
+        "id": -125,
+        "type": "image",
+        "src": "/media/trabajos/image-53fa6bf79ce8.jpg",
+        "alt": "Terminación de cierre",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -126,
+    "title": "Detalle de unión de placas",
+    "category": "",
+    "description": "",
+    "position": 26,
+    "image": "/media/trabajos/image-14408c93b8f3.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "14408c93b8f387d34496f237726dc81346a82d2466c666950358ffe0dc8d876e",
+    "media": [
+      {
+        "id": -126,
+        "type": "image",
+        "src": "/media/trabajos/image-14408c93b8f3.jpg",
+        "alt": "Detalle de unión de placas",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -127,
+    "title": "Placas listas para su preparación",
+    "category": "",
+    "description": "",
+    "position": 27,
+    "image": "/media/trabajos/image-1afb7e71d88c.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "1afb7e71d88c13a400af1d7b6c7ae458bc9b361bda75a5d12c9151ffd2468f5f",
+    "media": [
+      {
+        "id": -127,
+        "type": "image",
+        "src": "/media/trabajos/image-1afb7e71d88c.jpg",
+        "alt": "Placas listas para su preparación",
+        "position": 0
+      }
+    ]
+  },
+  {
+    "id": -128,
+    "title": "Recorrido por la producción de placas",
+    "category": "",
+    "description": "",
+    "position": 28,
+    "image": "/media/trabajos/video-93cd789e7f4b-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "93cd789e7f4b92ce95ea3ad8689ff818112fa386a946857fc6c8f4a0b4011cb2",
+    "media": [
+      {
+        "id": -128,
+        "type": "video",
+        "src": "/media/trabajos/video-93cd789e7f4b.mp4",
+        "alt": "Recorrido por la producción de placas",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-93cd789e7f4b-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -129,
+    "title": "Placas de hormigón en fabricación",
+    "category": "",
+    "description": "",
+    "position": 29,
+    "image": "/media/trabajos/video-c04b893e5378-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "c04b893e5378e03ab68912647cf1c19195b393afa8baf5066e7dc727f9311609",
+    "media": [
+      {
+        "id": -129,
+        "type": "video",
+        "src": "/media/trabajos/video-c04b893e5378.mp4",
+        "alt": "Placas de hormigón en fabricación",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-c04b893e5378-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -130,
+    "title": "Postes de hormigón para instalación",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 30,
+    "image": "/media/trabajos/video-cb05a5fce8c3-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "cb05a5fce8c383f907dbc91bae55e4913408c39bdc5075db8359aa3f02119335",
+    "media": [
+      {
+        "id": -130,
+        "type": "video",
+        "src": "/media/trabajos/video-cb05a5fce8c3.mp4",
+        "alt": "Postes de hormigón para instalación",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-cb05a5fce8c3-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -131,
+    "title": "Cierre instalado en terreno",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 31,
+    "image": "/media/trabajos/video-c3aae2885298-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "c3aae288529859845b5ede3af5d513a111f3d5362a788c68413e62680adf2f53",
+    "media": [
+      {
+        "id": -131,
+        "type": "video",
+        "src": "/media/trabajos/video-c3aae2885298.mp4",
+        "alt": "Cierre instalado en terreno",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-c3aae2885298-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -132,
+    "title": "Despacho de placas de hormigón",
+    "category": "",
+    "description": "",
+    "position": 32,
+    "image": "/media/trabajos/video-5f6944d96ede-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "5f6944d96ede75cf9b66a61c06e6ea9d8350d2437744def298148484a0078b15",
+    "media": [
+      {
+        "id": -132,
+        "type": "video",
+        "src": "/media/trabajos/video-5f6944d96ede.mp4",
+        "alt": "Despacho de placas de hormigón",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-5f6944d96ede-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -133,
+    "title": "Recorrido por cierre perimetral",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 33,
+    "image": "/media/trabajos/video-c8e6296da290-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "c8e6296da290adcc436e759eca5127171efab69a8b38d05bf0a643a45238d8c4",
+    "media": [
+      {
+        "id": -133,
+        "type": "video",
+        "src": "/media/trabajos/video-c8e6296da290.mp4",
+        "alt": "Recorrido por cierre perimetral",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-c8e6296da290-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -134,
+    "title": "Detalle de postes de hormigón",
+    "category": "",
+    "description": "",
+    "position": 34,
+    "image": "/media/trabajos/video-a1d4db8550ab-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "a1d4db8550ab5a574d4f29d5ee7b0b68dcd430b4abf901bedfd1f1ed060743b6",
+    "media": [
+      {
+        "id": -134,
+        "type": "video",
+        "src": "/media/trabajos/video-a1d4db8550ab.mp4",
+        "alt": "Detalle de postes de hormigón",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-a1d4db8550ab-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -135,
+    "title": "Materiales preparados en taller",
+    "category": "",
+    "description": "",
+    "position": 35,
+    "image": "/media/trabajos/video-dc8cd1eb9b71-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "dc8cd1eb9b71c3f39ea89a5ecdc152935fe1c5c2cc3869e6da3f953877d24b98",
+    "media": [
+      {
+        "id": -135,
+        "type": "video",
+        "src": "/media/trabajos/video-dc8cd1eb9b71.mp4",
+        "alt": "Materiales preparados en taller",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-dc8cd1eb9b71-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -136,
+    "title": "Cierre y acceso a propiedad",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 36,
+    "image": "/media/trabajos/video-7d9713aafb5e-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "7d9713aafb5edee4deda491f97780b8a5b552ef42c8ed759550c9f7628936892",
+    "media": [
+      {
+        "id": -136,
+        "type": "video",
+        "src": "/media/trabajos/video-7d9713aafb5e.mp4",
+        "alt": "Cierre y acceso a propiedad",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-7d9713aafb5e-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -137,
+    "title": "Traslado de materiales",
+    "category": "",
+    "description": "",
+    "position": 37,
+    "image": "/media/trabajos/video-739bab583d7f-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "739bab583d7f1e4883a1cb5f96d53db97aff80283160a22dc003256729e65b07",
+    "media": [
+      {
+        "id": -137,
+        "type": "video",
+        "src": "/media/trabajos/video-739bab583d7f.mp4",
+        "alt": "Traslado de materiales",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-739bab583d7f-poster.jpg"
+      }
+    ]
+  },
+  {
+    "id": -138,
+    "title": "Instalación de cierre en terreno",
+    "category": "Cierres perimetrales",
+    "description": "",
+    "position": 38,
+    "image": "/media/trabajos/video-055f545f03ea-poster.jpg",
+    "importBatch": "provided-media-2026-10-22",
+    "sourceHash": "055f545f03eab64df7fb790a122b624945f700777300e910e271f8483a1fd276",
+    "media": [
+      {
+        "id": -138,
+        "type": "video",
+        "src": "/media/trabajos/video-055f545f03ea.mp4",
+        "alt": "Instalación de cierre en terreno",
+        "position": 0,
+        "thumbnail": "/media/trabajos/video-055f545f03ea-poster.jpg"
+      }
+    ]
   }
 ]

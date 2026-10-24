@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react';
+import {useEffect,useLayoutEffect,useState} from 'react';
 
 export function useReducedMotion(){
   const [reduced,setReduced]=useState(()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches);
@@ -17,12 +17,39 @@ export function usePageMotion(){
     const frame=requestAnimationFrame(()=>document.getElementById(id)?.scrollIntoView({behavior:'instant',block:'start'}));
     return()=>cancelAnimationFrame(frame);
   },[]);
-  useEffect(()=>{
+  useLayoutEffect(()=>{
     const elements=document.querySelectorAll<HTMLElement>('[data-reveal]');
-    if(reduced||typeof IntersectionObserver==='undefined'){elements.forEach(el=>el.classList.add('revealed'));return}
-    const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('revealed');observer.unobserve(entry.target)}})},{threshold:.08});
-    elements.forEach(el=>{if(el.getBoundingClientRect().top<window.innerHeight)el.classList.add('revealed');else{el.classList.add('reveal-ready');observer.observe(el)}});
-    return()=>{observer.disconnect();elements.forEach(el=>el.classList.remove('reveal-ready'))};
+    const targets=new Map<HTMLElement,HTMLElement[]>();
+    elements.forEach(section=>{
+      const parts=Array.from(section.querySelectorAll<HTMLElement>('.section-heading, .service-grid > .service, .gallery-access, .project-motion-wrapper, .reviews-motion-wrapper, .quote-grid > *, .company-strip > .wrap'));
+      targets.set(section,parts.length?parts:[section]);
+    });
+    const show=(section:HTMLElement)=>{
+      section.classList.add('revealed');
+      targets.get(section)?.forEach(el=>el.classList.add('entrance-visible'));
+    };
+    if(reduced||typeof IntersectionObserver==='undefined'){elements.forEach(show);return}
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){show(entry.target as HTMLElement);observer.unobserve(entry.target)}});
+    },{threshold:0,rootMargin:'0px 0px -100px 0px'});
+    const focus=(event:FocusEvent)=>{
+      const section=(event.target as HTMLElement).closest<HTMLElement>('[data-reveal]');
+      if(section){show(section);observer.unobserve(section)}
+    };
+    elements.forEach(section=>{
+      // Sections already seen (including after a preference change) stay visible.
+      if(section.classList.contains('revealed')||section.getBoundingClientRect().top<window.innerHeight-100){show(section);return}
+      targets.get(section)?.forEach((el,index)=>{
+        el.classList.add('entrance-ready');
+        el.style.setProperty('--entrance-delay',`${Math.min(index,3)*90}ms`);
+      });
+      observer.observe(section);
+    });
+    document.addEventListener('focusin',focus);
+    return()=>{
+      observer.disconnect();document.removeEventListener('focusin',focus);
+      targets.forEach(parts=>parts.forEach(el=>{el.classList.remove('entrance-ready');el.style.removeProperty('--entrance-delay')}));
+    };
   },[reduced]);
   useEffect(()=>{
     let frame=0;

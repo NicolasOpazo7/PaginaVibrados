@@ -8,5 +8,5 @@ export function asset(path:string,base=import.meta.env?.BASE_URL||'/'){
 }
 export async function api(path:string, options:RequestInit={}) {const r=await fetch(`/api${path}`,{...options,headers:{...(options.body instanceof FormData?{}:{'Content-Type':'application/json'}),...options.headers}}); const data=await r.json(); if(!r.ok) throw new Error(data.error||'No fue posible completar la solicitud.');return data;}
 export type ProjectMedia={id:number;type:'image'|'video';src:string;thumbnail?:string;alt:string;position:number};
-export type Project={id:number;title:string;category:string;description:string;image:string;position:number;media:ProjectMedia[]};
+export type Project={location?:string;id:number;title:string;category:string;description:string;image:string;position:number;media:ProjectMedia[]};
 export type Review={id:number;name:string;rating:number;comment:string;created:string;status:string;response?:string;image?:string};
