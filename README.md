@@ -1,3 +1,7 @@
+> **Supabase:** la modalidad actual de reseñas usa Supabase y funciona con GitHub Pages. Sigue [la configuración de Supabase](docs/supabase-reviews.md) para aplicar las políticas, crear tu cuenta y activar el panel oculto `?panel-resenas`. El backend Node/SQLite se conserva como alternativa; se elige con `VITE_REVIEWS_PROVIDER=node`.
+
+> **Reseñas y panel actualizados:** el acceso administrativo actual es `/panel-resenas`, sin enlaces públicos, y está dedicado solo a reseñas. El formulario se abre al pulsar **Agregar una reseña**. Para configurar el login, el servidor Node con SQLite y la conexión desde GitHub Pages, consulta [la guía de reseñas](docs/reviews-server.md). Las instrucciones antiguas del panel de proyectos de este documento describen la versión anterior.
+
 # Vibrados Lagunilla
 
 Sitio comercial React + TypeScript + Vite, con API Express y base SQLite persistente. Conserva cotizaciones por WhatsApp, reseñas moderadas, administración y proyectos anteriores. El rediseño usa CSS e iconos existentes, sin dependencias nuevas.

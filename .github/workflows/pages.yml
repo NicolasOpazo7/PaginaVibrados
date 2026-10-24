@@ -29,6 +29,7 @@ jobs:
         env:
           VITE_BASE_PATH: /PaginaVibrados/
           VITE_STATIC_SITE: 'true'
+          VITE_REVIEWS_API_URL: ${{ vars.VITE_REVIEWS_API_URL }}
       - uses: actions/upload-pages-artifact@v4
         with:
           path: dist
